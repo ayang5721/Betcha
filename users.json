@@ -1,0 +1,23 @@
+{
+    "a": {
+        "name": "a",
+        "password": "b",
+        "auth_key": "471.09659463994785",
+        "balance": 0,
+        "transactions": []
+    },
+    "b": {
+        "name": "b",
+        "password": "b",
+        "auth_key": "10000.099474551016",
+        "balance": 0,
+        "transactions": []
+    },
+    "abc": {
+        "name": "abc",
+        "password": "123",
+        "auth_key": "11956.269812373626",
+        "balance": 0,
+        "transactions": []
+    }
+}
