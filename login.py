@@ -8,6 +8,7 @@ import User
 USER_FILE = "users.json"
 user_dictionary = {}
 login_successful = False 
+current_user = None
 
 def load_users():
     if os.path.exists(USER_FILE):
@@ -40,6 +41,7 @@ def login():
     if username in users:
         if users[username]["password"] == password:
             messagebox.showinfo("Login", "Login successful")
+            current_user = user_dictionary[f"{username}_object"]
             login_window.destroy()
             login_successful = True
         else:
@@ -58,26 +60,26 @@ def create_user():
         save_user(user_dictionary[f"{username}_object"])
         messagebox.showinfo("Create user", "User created")
 
-def login_process():
-    login_window = tk.Tk()
-    login_window.title("Login")
-    login_window.geometry("1500x700")
+# def login_process():
+login_window = tk.Tk()
+login_window.title("Login")
+login_window.geometry("1500x700")
         
-    tk.Label(login_window, text = "Username").pack()
-    username_entry = tk.Entry(login_window)
-    username_entry.pack()
+tk.Label(login_window, text = "Username").pack()
+username_entry = tk.Entry(login_window)
+username_entry.pack()
 
-    tk.Label(login_window, text = "Password").pack()
-    password_entry = tk.Entry(login_window, show = "*")
-    password_entry.pack()
+tk.Label(login_window, text = "Password").pack()
+password_entry = tk.Entry(login_window, show = "*")
+password_entry.pack()
 
-    tk.Button(login_window, text = "Login", command = login).pack(pady = 5)
-    tk.Button(login_window, text = "Create user", command = create_user).pack()
+tk.Button(login_window, text = "Login", command = login).pack(pady = 5)
+tk.Button(login_window, text = "Create user", command = create_user).pack()
 
-    while True:
-        login_window.mainloop()
+while True:
+    login_window.mainloop()
 
-        if login_successful:
-            break
+    if login_successful:
+        break
 
 
