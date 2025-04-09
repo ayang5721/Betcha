@@ -19,5 +19,19 @@
         "auth_key": "11956.269812373626",
         "balance": 0,
         "transactions": []
+    },
+    "dwfa": {
+        "name": "dwfa",
+        "password": "fwDF",
+        "auth_key": "35612.894827489836",
+        "balance": 0,
+        "transactions": {}
+    },
+    "wef": {
+        "name": "wef",
+        "password": "wef",
+        "auth_key": "2913.709444236819",
+        "balance": 0,
+        "transactions": {}
     }
 }
