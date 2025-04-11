@@ -15,7 +15,6 @@ user_dictionary = {}
 
 def setup_user_dictionary():
     print("yellow")
-    user_dictionary = {}
     with open(USER_FILE, "r") as file:
         users = json.load(file)
         for name, user_data in users.items():
