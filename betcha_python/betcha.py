@@ -3,8 +3,8 @@ import datetime
 from tkinter import messagebox
 import json
 
-import User
-import login
+import betcha_python.User as User
+import betcha_python.login as login
 
 active_bets = {}
 

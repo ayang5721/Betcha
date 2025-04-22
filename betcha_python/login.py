@@ -3,7 +3,7 @@ from tkinter import messagebox
 import json
 import os
 
-import User
+import betcha_python.User as User
 
 USER_FILE = "users.json"
 user_dictionary = json.load(open("users.json", "r"))
