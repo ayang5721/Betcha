@@ -5,12 +5,12 @@ class User():
     def __init__(self, NM, PW, AK=None, BAL=None, TRAN=None, TM=None):
 
         """
-        NN: name
-        PW: password
-        AK: auth key
-        BAL: balance
-        TRAN: transactions
-        TM: temp money
+        NN: name - string
+        PW: password - string
+        AK: auth key - float
+        BAL: balance - float
+        TRAN: transactions - dictionary/list
+        TM: temp money - float
         """
 
         self.NM = NM
