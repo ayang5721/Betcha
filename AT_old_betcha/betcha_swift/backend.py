@@ -11,7 +11,7 @@ Add security for every request for user info
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-import User
+import Classes
 import USERS
 
 app = Flask(__name__)
@@ -46,7 +46,7 @@ def register():
     if username in users:
         return jsonify({"status": "error", "message": "User already exists"}), 409
     else:
-        current_User = User(NM = username, PW = password)
+        current_User = Classes(NM = username, PW = password)
         users[username] = {
            current_User.to_dict()
         }
