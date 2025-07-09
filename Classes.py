@@ -3,16 +3,17 @@ import json
 import numpy as np
 
 class User:
-    def __init__(self, name, password, balance):
+    def __init__(self, name, password, balance = 0, active_bets = []):
         self.name = name
         self.password = password
         self.balance = balance
-        self.active_bets = []
+        self.active_bets = active_bets
 
     def toJson (self):
         return {
 
             self.name: {
+                "username": self.name,
                 "password": self.password,
                 "balance": self.balance,
                 "bet_keys": [bet.key for bet in self.active_bets]
@@ -36,6 +37,7 @@ class Bet:
     def toJson(self):
         return {
             self.key: {
+                "key": self.key,
                 "event": self.event,
                 "case1": self.case1,
                 "user1": self.user1,
