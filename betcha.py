@@ -1,13 +1,22 @@
 import numpy as np
 import json
 import os
+import tkinter as tk
+from tkinter import messagebox
 from Classes import User, Bet
 from Login import login, createUser
+from BetFunctions import create_bet, accept_bet
 
 bets_data = {}
 if os.path.exists("Bets.json") and os.path.getsize("Bets.json") > 0:
     with open("Bets.json", "r") as f:
         bets_data = json.load(f)
+
+users_data = {}
+if os.path.exists("Users.json") and os.path.getsize("Users.json") > 0:
+    with open("Users.json", "r") as f:
+        users_data = json.load(f)
+
 
 loginOrCreate = input("Do you want to login or create a new user? (login/create): ").strip().lower()
 if loginOrCreate == "create":
@@ -32,10 +41,11 @@ if mainscreen_choice == "marketplace":
 
     betAccept = input("Do you want to accept a bet? (yes/no): ").strip().lower()
     if betAccept == "yes":
-        accept_bet()
+        accept_bet(current_user, bets_data, users_data)
 
 elif mainscreen_choice == "create":
-    create_bet()
+    create_bet(current_user, bets_data, users_data)
+
 elif mainscreen_choice == "view":
     for key in current_user.active_bets:
         bet = bets_data.get(key)
@@ -44,56 +54,3 @@ elif mainscreen_choice == "view":
         else:
             print(f"ACCEPTED: Key: {key}, Event: {bet['event']}, Case1: {bet['case1']}, User1: {bet['user1']}, Bet1: {bet['bet1']}, User2: {bet['user2']}, Bet2: {bet['bet2']}")
 
-
-
-def create_bet():
-    event = input("Enter the event: ")
-    case1 = input("Enter your choice: ")
-
-    bet1 = 0.0
-    while(bet1 <= 0):
-        bet1 = input("Enter your bet: ")
-        bet1 = float(bet1)
-        if bet1 > current_user.balance:
-            print("Insufficient balance. Please try again.")
-            bet1 = 0.0
-
-    bet2 = 0.0
-    while (bet2 <= 0):
-        bet2 = input("Enter the desired bet of the other user: ")
-        bet2 = float(bet2)
-
-    key = -1
-    
-    while(key in bets_data.keys()):
-        key = np.random.randfloat(0, 100)
-
-
-    #publish bet using Bet class
-    bet = Bet(key, event = event, case1 = case1, user1 = current_user.name, bet1 = bet1, case2 = "None", user2 = "None", bet2 = bet2)
-    
-    current_user.active_bets.append(key)
-        
-    added_bet = bet.toJson()
-    bets_data.update(added_bet)  # Update the existing bets data with the new bet
-
-    with open("Bets.json", "w") as f:
-        json.dump(bets_data, f, indent=4)
-
-def accept_bet():
-    #accept the bet on a button click - key will be known
-    key = None
-    while(key not in bets_data.keys()):
-        key = input("Enter the key of the bet you want to accept: ")
-
-
-    bet = bets_data.get(key)
-
-    bet = Bet(key, event = bet["event"], case1 = bet["case1"], user1 = bet["user1"], bet1 = bet["bet1"], case2 = None, user2 = current_user.name, bet2 = bet["bet2"])
-
-    #update the bet in the JSON file
-    bets_data[key] = bet.toJson()[key]
-    with open("Bets.json", "w") as f:
-        json.dump(bets_data, f, indent=4)
-
-    current_user.active_bets.append(key)  

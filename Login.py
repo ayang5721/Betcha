@@ -21,10 +21,10 @@ def login(username, password):
         
 def createUser(username, password, balance):
     if username in users_data:
-        print("Username already exists.")
+        print("User already exists.")
         return None
     new_user = User(username, password, balance)
-    users_data.append(new_user.toJson())
+    users_data.update(new_user.toJson())
     with open("Users.json", "w") as f:
         json.dump(users_data, f, indent=4)
     
