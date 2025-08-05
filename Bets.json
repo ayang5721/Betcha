@@ -1,0 +1,42 @@
+{
+    "8": {
+        "key": "8",
+        "event": "game",
+        "case1": "win",
+        "user1": "a",
+        "bet1": 1.0,
+        "case2": null,
+        "user2": "b",
+        "bet2": 2.0
+    },
+    "42.75484563255905": {
+        "key": "42.75484563255905",
+        "event": "game2",
+        "case1": "lose",
+        "user1": "a",
+        "bet1": 3.0,
+        "case2": null,
+        "user2": "b",
+        "bet2": 4.0
+    },
+    "16.312267457386774": {
+        "key": "16.312267457386774",
+        "event": "b_game",
+        "case1": "tie",
+        "user1": "b",
+        "bet1": 1.0,
+        "case2": "None",
+        "user2": "None",
+        "bet2": 4.0
+    },
+    "42.166966624159826": {
+        "key": "42.166966624159826",
+        "event": "game3",
+        "case1": "win",
+        "user1": "a",
+        "bet1": 1.0,
+        "case2": null,
+        "user2": "b",
+        "bet2": 2.0
+    }
+}

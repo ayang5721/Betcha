@@ -16,7 +16,7 @@ class User:
                 "username": self.name,
                 "password": self.password,
                 "balance": self.balance,
-                "bet_keys": [self.active_bets]
+                "bet_keys": self.active_bets
             }
 
         }
