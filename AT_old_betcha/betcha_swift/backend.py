@@ -11,7 +11,7 @@ Add security for every request for user info
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-import Classes
+import Betcha_Python.Classes as Classes
 import USERS
 
 app = Flask(__name__)

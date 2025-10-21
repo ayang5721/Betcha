@@ -1,7 +1,7 @@
 import json
 import os
 import numpy as np
-from Classes import Bet, User
+from Betcha_Python.Classes import Bet, User
 
 def create_bet(current_user, bets_data, users_data, event, case1, bet1, bet2):
 

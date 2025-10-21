@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog
 import json
 import os
-from Classes import User, Bet
-from Login import login, createUser
-from BetFunctions import create_bet, accept_bet
+from Betcha_Python.Classes import User, Bet
+from Betcha_Python.Login import login, createUser
+from Betcha_Python.BetFunctions import create_bet, accept_bet
 
 # Load Data
 bets_data = {}

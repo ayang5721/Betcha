@@ -1,6 +1,6 @@
 import os
 import json
-from Classes import User
+from Betcha_Python.Classes import User
 
 users_data = {}
 if os.path.exists("Users.json") and os.path.getsize("Users.json") > 0:
